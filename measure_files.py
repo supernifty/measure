@@ -4,6 +4,7 @@
 '''
 
 import argparse
+import datetime
 import logging
 import os
 import sys
@@ -12,13 +13,13 @@ def main(directories, names, noheader):
   logging.info('starting...')
 
   if not noheader:
-    sys.stdout.write('{}\n'.format('\t'.join(names)))
+    sys.stdout.write('Date\t{}\n'.format('\t'.join(names)))
 
   result = []
   for name, directory in zip(names, directories):
     all_files = os.listdir(directory) # dir is your directory path
     result.append(len(all_files))
-  sys.stdout.write('{}\n'.format('\t'.join([str(x) for x in result])))
+  sys.stdout.write('{}\t{}\n'.format(datetime.datetime.now().strftime("%Y-%m-%d"), '\t'.join([str(x) for x in result])))
 
   logging.info('done')
 
