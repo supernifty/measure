@@ -28,6 +28,7 @@ def main():
 
   plt.figure(figsize=(18,12))
   plt.ylim(bottom=0, top=top + 5)
+  plt.grid(axis='both')
 
   for idx in range(1, len(fields)):
     plt.plot(xs, ys[header[idx]], label=header[idx])
